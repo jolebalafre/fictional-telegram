@@ -1,7 +1,7 @@
 <?php
 
 $data['message'] = 'Hello, World !';
-
+display_view('index', $data);
 
 function display_view($view_name, $data = array(), $return = false) {
     extract($data);
