@@ -1,5 +1,20 @@
 <?php
 
-echo "<h1>Hello, World!</h1>";
+$data['message'] = 'Hello, World !';
 
-exit;
+
+function display_view($view_name, $data = array(), $return = false) {
+    extract($data);
+
+    ob_start();
+    require_once '../views/' . $view_name . '.php';
+    $content = ob_get_contents();
+    ob_end_flush();
+
+    if ($return) {
+        return $content;
+    } else {
+        echo $content;
+        return;
+    }
+}
